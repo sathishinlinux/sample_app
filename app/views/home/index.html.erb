@@ -19,6 +19,21 @@ new TWTR.Widget({version: 2,type: 'profile',rpp: 4,interval: 30000,width: 250,he
 
 </script>
 
+
+
+ <script src="http://platform.twitter.com/anywhere.js?id=Ld88ypSPa2wk5vPWrpRg&v=1"></script>
+  <script type="text/javascript">
+	twttr.anywhere(function(twitter) {
+	//twitter("a.link-class").hovercards({
+ 	    twitter("#link-class").hovercards();
+	//username: function(node) {
+	//return node.title;
+	//}
+	//});
+            // enable links for @names
+	    twitter().linkifyUsers();
+	});
+  </script>
 <script>
 	      FB.init({
 	      appId: "395715373788921",
@@ -62,6 +77,21 @@ new TWTR.Widget({version: 2,type: 'profile',rpp: 4,interval: 30000,width: 250,he
 		});
 
          // twitter button.
+          var $dialog1 = $('<div id = "link-class"></div>')
+			.html('@sathishinlinux ')
+			.dialog({
+				autoOpen: false,
+				title: 'My <%= @home.twitter_name%>'
+				
+			});
+
+		$('.twitter_button').click(function() {
+			$dialog1.dialog('open');
+			// prevent the default action, e.g., following a link
+			return false;
+		});
+
+ 
             $('.link-class').dialog();
 	});
    
@@ -94,8 +124,5 @@ body {
 </tbody></table>
 
 <map name="Map" id="Map"><area shape="rect" coords="743,103,776,137" href="#" class ="facebook_button"><area shape="rect" coords="796,103,830,137" href="#" class = "twitter_button"></map>
-<div id = "link-class" onload = "twitter();">
-
-</div>
 
 </body></html>
