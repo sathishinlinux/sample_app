@@ -1,0 +1,16 @@
+<script type="text/javascript">
+      // you can add our javascript code here 
+$(document).ready(function() {
+    
+    $("#facebook_button").click(function() {
+        //$(".ss").dialog();
+	window.open('index','Continue_to_Application','width=420,height=300');   
+    });
+    $("#twitter_button").click(function() {
+        window.open('twitter','Continue_to_Application','width=400,height=400');
+    });
+});
+</script>
+<img src="/assets/facebook.png" alt="facebook" height="42" width="42" id="facebook_button" /> 
+<img src="/assets/twitter.png" alt="twitter" height="42" width="42" id="link-class" /> 
+<!-- <div id="link-class">@sathishinlinux</div> -->

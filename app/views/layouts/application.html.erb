@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FacebookWallApp</title>  	
+  <%= stylesheet_link_tag    "application", "jquery-1.6.1",:media => "all" %>
+  <%= javascript_include_tag "application", "jquery_neo" %>
+  <%= csrf_meta_tags %>
+  <script src="http://platform.twitter.com/anywhere.js?id=Ld88ypSPa2wk5vPWrpRg&v=1"></script>
+  <script type="text/javascript">
+	twttr.anywhere(function(twitter) {
+	//twitter("a.link-class").hovercards({
+ 	    twitter("#link-class").hovercards();
+	//username: function(node) {
+	//return node.title;
+	//}
+	//});
+            // enable links for @names
+	    twitter().linkifyUsers();
+	});
+  </script>
+  <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <script>
+      FB.init({
+        appId: "395715373788921",
+        cookie: true,
+        xfbml: true,
+        oauth: true
+      });
+    </script>
+
+    
+</head>
+<body>
+
+ 
+<%= yield %>
+
+    
+</body>
+</html>

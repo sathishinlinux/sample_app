@@ -1,0 +1,237 @@
+
+<style type="text/css">
+
+#dialog-overlay {
+
+	/* set it to fill the whil screen */
+	width:100%; 
+	height:100%;
+	
+	/* transparency for different browsers */
+	filter:alpha(opacity=50); 
+	-moz-opacity:0.5; 
+	-khtml-opacity: 0.5; 
+	opacity: 0.5; 
+	background:#000; 
+
+	/* make sure it appear behind the dialog box but above everything else */
+	position:absolute; 
+	top:0; left:0; 
+	z-index:3000; 
+
+	/* hide it by default */
+	display:none;
+}
+
+
+#dialog-box {
+	
+	/* css3 drop shadow */
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	
+	/* css3 border radius */
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	
+	background:#eee;
+	/* styling of the dialog box, i have a fixed dimension for this demo */ 
+	width:328px; 
+	
+	/* make sure it has the highest z-index */
+	position:absolute; 
+	z-index:5000; 
+
+	/* hide it by default */
+	display:none;
+}
+
+#dialog-box .dialog-content {
+	/* style the content */
+	text-align:left; 
+	padding:10px; 
+	margin:13px;
+	color:#666; 
+	font-family:arial;
+	font-size:11px; 
+}
+
+a.button {
+	/* styles for button */
+	margin:10px auto 0 auto;
+	text-align:center;
+	background-color: #e33100;
+	display: block;
+	width:50px;
+	padding: 5px 10px 6px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	
+	/* css3 implementation :) */
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	position: relative;
+	cursor: pointer;
+	
+}
+
+a.button:hover {
+	background-color: #c33100;	
+}
+
+/* extra styling */
+#dialog-box .dialog-content p {
+	font-weight:700; margin:0;
+}
+
+#dialog-box .dialog-content ul {
+	margin:10px 0 10px 20px; 
+	padding:0; 
+	height:50px;
+}
+
+
+
+</style>
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+
+	// if user clicked on button, the overlay layer or the dialogbox, close the dialog	
+	$('a.btn-ok, #dialog-overlay, #dialog-box').click(function () {		
+		$('#dialog-overlay, #dialog-box').hide();		
+		return false;
+	});
+	
+	// if user resize the window, call the same function again
+	// to make sure the overlay fills the screen and dialogbox aligned to center	
+	$(window).resize(function () {
+		
+		//only do it if the dialog box is not hidden
+		if (!$('#dialog-box').is(':hidden')) popup();		
+	});	
+	
+	
+});
+
+//Popup dialog
+function popup(message) {
+		
+	// get the screen height and width  
+	var maskHeight = $(document).height();  
+	var maskWidth = $(window).width();
+	
+	// calculate the values for center alignment
+	var dialogTop =  (maskHeight/3) - ($('#dialog-box').height());  
+	var dialogLeft = (maskWidth/2) - ($('#dialog-box').width()/2); 
+	
+	// assign values to the overlay and dialog box
+	$('#dialog-overlay').css({height:maskHeight, width:maskWidth}).show();
+	$('#dialog-box').css({top:dialogTop, left:dialogLeft}).show();
+	
+	// display the message
+	$('#dialog-message').html(message);
+			
+}
+
+</script>
+
+</head>
+<body onload="popup('<p>You can pass html code to it as well:</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3</li><li>List item 4</li></ul>')">
+
+<a href="javascript:popup('<p>You can pass html code to it as well:</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3</li><li>List item 4</li></ul>')">Popup!</a>
+
+<div id="dialog-overlay"></div>
+<div id="dialog-box">
+	<div class="dialog-content">
+		<div id="dialog-message"></div>
+		<a href="#" class="button">Close</a>
+	</div>
+</div>
+
+
+
+
+// 05/03/2012
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=395715373788921";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div id = "profile_picture">
+<img src="https://graph.facebook.com/<%= @home.facebook_name %>/about"/>
+</div>
+
+<div id = "Like-box">
+<fb:like-box href="http://www.facebook.com/<%= @home.facebook_name %>" width="400" show_faces="true" border_color="white" stream="false" header="false" height = "400"></fb:like-box>
+</div>
+<!-- <fb:like href="http://www.facebook.com/<%= @home.facebook_name %>" send="true" width="20" show_faces="false"></fb:like> -->
+<fb:send href="https://facebook.com/<%= @home.facebook_name %>"></fb:send>
+<fb:subscribe href="https://www.facebook.com/mysamplefanpage" show_faces="true" width="450"></fb:subscribe>
+<div class="fb-comments" data-href="https://www.facebook.com/<%= @home.facebook_name %>" data-num-posts="0" data-width="470"></div>
+
+
+
+# 05/03/20011  12.07pm
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script>
+	<script src="http://connect.facebook.net/en_US/all.js"></script>
+
+<script type = "text/css">
+
+div..transparent_widget .uiBoxWhite, .transparent_widget .fbConnectWidgetFooter.{bottom:0;cursor:default;position:absolute;width:100%; visibility:hidden}
+
+</script>	
+
+<script>
+	      FB.init({
+	      appId: "395715373788921",
+	      cookie: true,
+	      xfbml: true,
+	     oauth: true
+	      });
+	</script>
+
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=395715373788921";
+	  fjs.parentNode.insertBefore(js, fjs);
+	  }(document, 'script', 'facebook-jssdk'));</script>
+
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var $dialog = $('<div></div>')
+			.html('<fb:like-box href="http://www.facebook.com/<%= @home.facebook_name %>" width="400" show_faces="true" border_color="white" stream="true" header="false" height = "200"></fb:like-box> <br> <fb:send href="https://facebook.com/<%= @home.facebook_name %>"></fb:send><br><fb:subscribe href="https://www.facebook.com/mysamplefanpage" show_faces="true" width="450"></fb:subscribe> <br> <div class="fb-comments" data-href="https://www.facebook.com/<%= @home.facebook_name %>" data-num-posts="0" data-width="470"></div>')
+			.dialog({
+				autoOpen: false,
+				title: 'My <%= @home.facebook_name%>'
+				
+			});
+
+		$('#opener').click(function() {
+			$dialog.dialog('open');
+			// prevent the default action, e.g., following a link
+			return false;
+		});
+	});
+	</script>
+
+<img src="/assets/facebook.png" alt="facebook" height="42" width="42" id="opener" /> 
+<img src="/assets/twitter.png" alt="twitter" height="42" width="42" id="link-class
+
