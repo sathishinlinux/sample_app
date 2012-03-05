@@ -63,10 +63,10 @@ new TWTR.Widget({version: 2,type: 'profile',rpp: 4,interval: 30000,width: 250,he
 	// facebook button.
 
 		var $dialog = $('<div></div>')
-			.html('<fb:like-box href="http://www.facebook.com/<%= @home.facebook_name %>" width="400" show_faces="true" border_color="white" stream="true" header="false" height = "500"></fb:like-box> <br> <br> <div class="fb-comments" data-href="https://www.facebook.com/<%= @home.facebook_name %>" data-num-posts="0" data-width="470"></div> <br> <fb:send href="https://facebook.com/<%= @home.facebook_name %>"></fb:send><br><fb:subscribe href="https://www.facebook.com/mysamplefanpage" show_faces="true" width="450"></fb:subscribe> ')
+			.html('<fb:like-box href="http://www.facebook.com/mysamplefanpage" width="400" show_faces="true" border_color="white" stream="true" header="false" height = "500"></fb:like-box> <br> <br> <div class="fb-comments" data-href="https://www.facebook.com/mysamplefanpage" data-num-posts="0" data-width="470"></div> <br> <fb:send href="https://facebook.com/mysamplefanpage"></fb:send><br><fb:subscribe href="https://www.facebook.com/mysamplefanpage" show_faces="true" width="450"></fb:subscribe> ')
 			.dialog({
 				autoOpen: false,
-				title: 'My <%= @home.facebook_name%>'
+				title: 'My mysamplefanpage'
 				
 			});
 
@@ -81,7 +81,7 @@ new TWTR.Widget({version: 2,type: 'profile',rpp: 4,interval: 30000,width: 250,he
 			.html('@sathishinlinux ')
 			.dialog({
 				autoOpen: false,
-				title: 'My <%= @home.twitter_name%>'
+				title: 'My sathishinlinux'
 				
 			});
 
