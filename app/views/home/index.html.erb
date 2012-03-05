@@ -77,9 +77,27 @@ new TWTR.Widget({version: 2,type: 'profile',rpp: 4,interval: 30000,width: 250,he
 		});
 
          // twitter button.
-          var $dialog1 = $('<div id = "link-class"></div>')
-			.html('@sathishinlinux ')
-			.dialog({
+
+
+   //      var $dialog1 = $('<div></div>').html($(this).load('twitter.html'));
+	//	$("body").append($tos_dlg);
+	//	$tos_dlg.dialog({
+	//	    autoOpen: false,
+	//	    title: 'Policies &amp; Terms of Service',
+	//	    width: 600,
+	//	    height: 400,
+//    modal: true
+	//	});
+
+function get_tweets(){
+
+alert("I AM HERE");
+//new TWTR.Widget({version: 2,type: 'profile',rpp: 4,interval: 30000,width: 250,height: 300,theme: {shell: {background: '#333333',color:'#ffffff'},tweets: {background: '#000000',color: '#ffffff',links: '#4aed05'}},features: {scrollbar: false,loop: false,live: false,behavior: 'all'}}).render().setUser('sathish').start();
+
+}
+          
+          var $dialog1 = $('<div id = "link-class"></div>').append($('#link-id'))
+				.dialog({
 				autoOpen: false,
 				title: 'sathishinlinux twitter'
 				
@@ -122,7 +140,13 @@ body {
     </tbody></table></td>
   </tr>
 </tbody></table>
+<script>
+<div id = "link-id">
 
+new TWTR.Widget({version: 2,type: 'profile',rpp: 4,interval: 30000,width: 250,height: 300,theme: {shell: {background: '#333333',color:'#ffffff'},tweets: {background: '#000000',color: '#ffffff',links: '#4aed05'}},features: {scrollbar: false,loop: false,live: false,behavior: 'all'}}).render().setUser('sathish').start();
+
+</div>
+</script>
 <map name="Map" id="Map"><area shape="rect" coords="743,103,776,137" href="#" class ="facebook_button"><area shape="rect" coords="796,103,830,137" href="#" class = "twitter_button"></map>
 
 </body></html>
