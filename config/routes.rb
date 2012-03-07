@@ -2,6 +2,8 @@ FacebookWallApp::Application.routes.draw do
    get "home/index"
    root :to => "home#index"
    match "home/show" => "home#show"
+   match "homes/twitter_button" => "home#twitter_button"
+  # match "/twitter.js" => "home#twitter.js"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

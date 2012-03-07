@@ -5,4 +5,13 @@ class HomeController < ApplicationController
   def show
   
   end
+
+  def twitter_button
+  @home = Home.find(1) 
+  render :partial => 'twitter_get_tweets', :locals => {:home_object => @home }
+
+  end
+  def twitter
+ render :text =>  env[:params]
+  end
 end

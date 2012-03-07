@@ -7,15 +7,29 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script>
 	<script src="http://connect.facebook.net/en_US/all.js"></script>
 	
+<script type = "text/css">
+
+div..transparent_widget .uiBoxWhite, .transparent_widget .fbConnectWidgetFooter.{bottom:0;cursor:default;position:absolute;width:100%; visibility:hidden}
+
+</script>
+<script>	
+function twitter(){
+new TWTR.Widget({version: 2,type: 'profile',rpp: 4,interval: 30000,width: 250,height: 300,theme: {shell: {background: '#333333',color:'#ffffff'},tweets: {background: '#000000',color: '#ffffff',links: '#4aed05'}},features: {scrollbar: false,loop: false,live: false,behavior: 'all'}}).render().setUser('sathish').start();
+}
+
+</script>
+
+
+
  <script src="http://platform.twitter.com/anywhere.js?id=Ld88ypSPa2wk5vPWrpRg&v=1"></script>
   <script type="text/javascript">
 	twttr.anywhere(function(twitter) {
 	//twitter("a.link-class").hovercards({
- 	    twitter("#link-class #twitter_div").hovercards({
-	username: function(node) {
-	return node.title;
-	}
-	});
+ 	    twitter("#link-class").hovercards();
+	//username: function(node) {
+	//return node.title;
+	//}
+	//});
             // enable links for @names
 	    twitter().linkifyUsers();
 	});
@@ -42,10 +56,10 @@
 </script>
 
 
-
 	<script type="text/javascript">
 	$(document).ready(function() {
-       
+       $('#link-class').dialog();
+
 	// facebook button.
 
 		var $dialog = $('<div></div>')
@@ -64,12 +78,13 @@
 		});
 
       
-                       $('#link-class').dialog({autoOpen:false,title:'Twitter On ZiqquMusic'}); 
+           var $dialog1 = $('#twitter').dialog({autoOpen: false,title: 'Facebook On Ziqqu'});
+
                //alert($dialog1);
 		$('.twitter_button').click(function() {
-                      
-			$('#link-class').dialog('open');
-
+			alert($dialog1);
+			//$dialog1.dialog('open');
+			// prevent the default action, e.g., following a link
 			return false;
 		});
 
@@ -104,17 +119,13 @@ body {
 </tbody></table>
 
 <map name="Map" id="Map"><area shape="rect" coords="743,103,776,137" href="#" class ="facebook_button"><area shape="rect" coords="796,103,830,137" href="#" class = "twitter_button"></map>
-	<div id="link-class">
-		<div id="twitter_div" ><script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script> 
-				<script>
-					 new TWTR.Widget({version: 2, id: 'twitter_div' ,type: "profile",rpp: 4,interval: 30000,width: 							250,height: 300,theme: {shell: {background: "#a3dbf0",color:"#ffffff"},tweets: {background: 							"#518df5",color: "#ffffff",links: "#eb4407"}},features: {scrollbar: true,loop: true,live: 							true,behavior: "all"}}).render().setUser("ZiqquMusic").start();
-				</script>
-		</div>
-       		   
-                 <div id="follower_count"><script type="text/javascript" src="http://twittercounter.com/embed/?username=ZiqquMusic&style=avatar"></script></div>
- 		<div id="following"> <a href="https://twitter.com/intent/user?screen_name=ziqqumusic"><img src="" alt ="Follow@Ziqqumusic" /> </a></div>	
 
- 	</div>
 
-</body>
-</html>
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script> 
+
+<script>
+
+ new TWTR.Widget({version: 2,type: "profile",rpp: 4,interval: 30000,width: 250,height: 300,theme: {shell: {background: "#333333",color:"#ffffff"},tweets: {background: "#000000",color: "#ffffff",links: "#4aed05"}},features: {scrollbar: false,loop: false,live: false,behavior: "all"}}).render().setUser("sathish").start();
+</script>
+
+</body></html>
